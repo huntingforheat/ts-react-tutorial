@@ -1,24 +1,33 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Greetings from './components/Greetings';
+import Counter from './components/Counter';
+import MyForm from './components/MyForm';
+import CounterReducer from './components/CounterReducer';
+import ReducerSample from './components/ReducerSample';
 
 function App() {
+  const onClick = (name: string) => {
+    console.log(`${name} say hello`);
+    
+  }
+
+  const onSubmit = (form: {name: string, description: string}) => {
+    console.log(form);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      {/* <Greetings name="siu" onClick={onClick}/> */}
+      <hr />
+      <Counter />
+      <hr />
+      <MyForm onSubmit={onSubmit}/>
+      <hr />
+      <CounterReducer />
+      <hr />
+      <ReducerSample />
     </div>
   );
 }
